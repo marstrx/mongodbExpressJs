@@ -20,6 +20,13 @@ const user1 = new userModel({
     email:"email.com"
 });
 
+app.get("/",(req,res)=>{
+    const users = userModel.find()
+    .then((data)=>{
+        res.json(data)
+    })
+})
+
 user1.save();
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`);
